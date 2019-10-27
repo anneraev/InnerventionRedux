@@ -23,14 +23,19 @@ import React, {useState} from 'react';
 //     );
 // };
 
-import InputTitle from '../InputTitle/InputTitle.js'
+import InputTitle from '../InputText/InputText.js'
 
 const Headline = () => {
     const [greeting, setGreeting] = useState('Function Component Use State!')
 
     const hanleChange = event => setGreeting(event.target.value);
 
-    return <InputTitle value={greeting} changeFunction={hanleChange}/>
+    return (
+        <div>
+            <h1>{greeting}</h1>
+            <InputTitle value={greeting} changeFunction={hanleChange}/>
+        </div>
+        )
 };
 
 
