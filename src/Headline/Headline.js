@@ -1,42 +1,24 @@
 import React, {useState} from 'react';
+import DisplayText from '../DisplayText/DisplayText';
+import InputText from '../InputText/InputText'
 
-// const Headline = ({ value }) => {
-//     return <h1>{value}</h1>;
+// const Test = () => {
+//     const greeting = 'Hello Function Component!';
+//     return <Headline value={greeting} />;
 // };
 
-// const Headline = () => {
-//     const [greeting, setGreeting] = useState('Function Component Use State!')
-
-//     return <h1>{greeting}</h1>
-// };
-
-// const Headline = () => {
-//     const [greeting, setGreeting] = useState('Function Component Use State!')
-
-//     return (
-//         <div>
-//             <h1>{greeting}</h1>
-
-//             <input type="text" value={greeting} onChange={event => setGreeting(event.target.value)}
-//             />
-//         </div>
-//     );
-// };
-
-import InputTitle from '../InputText/InputText.js'
-
+//This component has state and passes the function to change that state as a callback to a component responsible for being a reusable input for altering the text. The Display text component is also designed to be reusable.
 const Headline = () => {
     const [greeting, setGreeting] = useState('Function Component Use State!')
 
-    const hanleChange = event => setGreeting(event.target.value);
+    const handleChange = event => setGreeting(event.target.value);
 
-    return (
-        <div>
-            <h1>{greeting}</h1>
-            <InputTitle value={greeting} changeFunction={hanleChange}/>
-        </div>
-        )
+    const label = "Set Greeting:"
+
+    return (<div>
+            <DisplayText value={greeting}/>
+            <InputText label={label} changeFunction={handleChange} />
+    </div>);
 };
-
 
 export default Headline;
